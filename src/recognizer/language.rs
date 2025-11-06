@@ -285,6 +285,14 @@ impl From<&str> for Language {
     }
 }
 
+pub async fn rulecustom(word: &mut str, data: String ) ->String {
+    match word.contains(&data[10..100]) {
+        true => word.replace(&word[10..100], &*data),
+        _ => word.to_owned() + "",
+    }//data and word must be same length
+}
+
+pub fn async customrule(
 impl From<String> for Language {
     fn from(value: String) -> Self {
         match value.as_str() {
